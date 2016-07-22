@@ -9,13 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require("@angular/forms");
 var LinksComponent = (function () {
     function LinksComponent() {
+        this._urls = [];
+        this.url = LinksComponent.URL_TEXT;
     }
+    Object.defineProperty(LinksComponent, "URL_TEXT", {
+        get: function () { return 'Enter URL'; },
+        enumerable: true,
+        configurable: true
+    });
+    LinksComponent.prototype.addUrl = function (url) {
+        this._urls.push(url);
+        this.url = LinksComponent.URL_TEXT;
+    };
     LinksComponent = __decorate([
         core_1.Component({
             selector: 'app',
-            templateUrl: 'app/links/links.component.html'
+            templateUrl: 'app/links/links.component.html',
+            directives: [forms_1.FORM_DIRECTIVES],
         }), 
         __metadata('design:paramtypes', [])
     ], LinksComponent);
