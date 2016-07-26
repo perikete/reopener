@@ -1,5 +1,5 @@
 
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.browserAction.onClicked.addListener(function () {
 
     chrome.storage.sync.get("reopener", function(items){
 
@@ -8,8 +8,6 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         for (var i = 0; i < urls.length; i++) {
             chrome.tabs.create({ url: urls[i] });
         }
-
-        alert(items.reopener.length);
     });
 
 });
