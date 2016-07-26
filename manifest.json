@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Reopener",
-  "description": "Minimal todo app for minimalist",
-  "short_name": "ng-Todo",
-  "version": "0.1",
+  "description": "Simple extension just to reopen your saved tabs",
+  "short_name": "ReOpener",
+  "version": "1.0.0",
   "options_page": "options.html",
   "browser_action": {
     "default_icon": "logo.png",
@@ -11,7 +11,7 @@
   },
   "background": {
     "scripts": [
-      "background.js"
+      "js/background.js"
     ],
     "persistent": false
   },

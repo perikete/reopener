@@ -2,23 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reopener Options</title>
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <title>ReOpener Options</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
 
 </head>
 <body>
 
-<form>
-    <form class="form-inline container">
-        <label for="url">Url</label>
-        <input type="text" class="form-control" id="url" placeholder="URL">
-        <button type="button" class="btn btn-default add-btn">Add</button>
-    </form>
-</form>
+<div class="main container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline container">
+                <label for="url">Url</label>
+                <input type="text" class="form-control" id="url" placeholder="URL">
+                <button type="submit" class="btn btn-primary add-btn">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <br/>
+
+    <table id="url-container" class="table table-hover">
+        <thead>
+        <th>URL</th>
+        <th></th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
 
 
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="options.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/options.js"></script>
 </body>
+
 </html>
