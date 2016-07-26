@@ -40,7 +40,7 @@ $(document).ready(function () {
     });
 
     function appendNewForm(url, index) {
-        var newUrlComponent = $('<tr><td>' + url + '</td><td><button type="button" data-index="' + index + '" class="btn btn-danger delete">Delete</button></td></tr>');
+        var newUrlComponent = $('<tr id="idx-' + index + '"><td>' + url + '</td><td><button type="button" data-index="' + index + '" class="btn btn-danger delete">Delete</button></td></tr>');
         $('#url-container > tbody').append(newUrlComponent);
     }
 
