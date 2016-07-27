@@ -43,4 +43,6 @@ jspm_packages
 dist
 
 css/bootstrap.min.css
-js/jquery.min.js
+js/jquery*
+css/jquery*
+.idea/workspace.xml
