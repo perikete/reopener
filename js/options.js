@@ -2,11 +2,34 @@ $(document).ready(function () {
 
     var urls = [];
 
+
+    var sortableUrls = $('tbody').sortable({
+        items: '> tr',
+        appendTo: 'parent',
+        helper: 'clone'
+    }).disableSelection();
+
+    sortableUrls.on('sortchange', function(event, ui){
+        var urlRows = $('tbody > tr');
+
+        urls = [];
+
+        $.each(urlRows, function(index, row){
+            var url = $(row).children('.url-col').html();
+            urls.push(url);
+        });
+
+        chrome.storage.sync.clear();
+
+        setUrls(urls);
+    });
+
+
     chrome.storage.onChanged.addListener(function () {
         $('#url').val('');
     });
 
-    chrome.storage.sync.get("reopener", function (items) {
+    chrome.storage.sync.get('reopener', function (items) {
         if (items && items.reopener) {
             urls = items.reopener;
 
@@ -40,13 +63,14 @@ $(document).ready(function () {
     });
 
     function appendNewForm(url, index) {
-        var newUrlComponent = $('<tr id="idx-' + index + '"><td>' + url + '</td><td><button type="button" data-index="' + index + '" class="btn btn-danger delete">Delete</button></td></tr>');
+        var newUrlComponent = $('<tr id="idx-' + index + '"><td class="url-col">' + url
+            + '</td><td><button type="button" data-index="' + index
+            + '" class="btn btn-danger delete">Delete</button></td></tr>');
+
         $('#url-container > tbody').append(newUrlComponent);
     }
 
     function setUrls(urls) {
-        chrome.storage.sync.set({"reopener": urls}, function () {
-            console.log('Data is stored in Chrome storage');
-        });
+        chrome.storage.sync.set({'reopener': urls});
     }
 });

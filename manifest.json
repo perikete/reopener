@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Reopener",
+  "name": "ReOpener",
   "description": "Simple extension just to reopen your saved tabs",
   "short_name": "ReOpener",
   "version": "1.0.0",
