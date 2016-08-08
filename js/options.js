@@ -2,14 +2,13 @@ $(document).ready(function () {
 
     var urls = [];
 
-
     var sortableUrls = $('tbody').sortable({
         items: '> tr',
         appendTo: 'parent',
         helper: 'clone'
     }).disableSelection();
 
-    sortableUrls.on('sortchange', function(event, ui){
+    sortableUrls.on('sortupdate', function(event, ui){
         var urlRows = $('tbody > tr');
 
         urls = [];
@@ -56,10 +55,9 @@ $(document).ready(function () {
 
         if (index > -1) {
             urls.splice(index, 1);
+            setUrls(urls);
+            $('#idx-' + index).remove();
         }
-
-        setUrls(urls);
-        $('#idx-' + index).remove();
     });
 
     function appendNewForm(url, index) {
