@@ -31,14 +31,16 @@ gulp.task('build', ['default'], function (done) {
 
     gulp.src(['./js/options.js'])
         .pipe(Uglify())
-        .pipe(gulp.dest('./dist/js'));
-
-    gulp.src(['./js/jquery.min.js'])
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./dist/js'));    
 
     gulp.src(['./js/background.js'])
         .pipe(Uglify())
         .pipe(gulp.dest('./dist/js'));
+
+    gulp.src(['*js/**/*',
+        '!*js/**/options.js',
+        '!*js/**/background.js'])
+        .pipe(gulp.dest('./dist'));
 
     done();
 });
