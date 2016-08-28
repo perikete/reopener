@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "ReOpener",
+  "description": "Simple extension just to reopen your saved tabs",
+  "short_name": "ReOpener",
+  "version": "1.0.0",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_title": "ReOpen!"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "debugger",
+    "storage",
+    "activeTab"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
